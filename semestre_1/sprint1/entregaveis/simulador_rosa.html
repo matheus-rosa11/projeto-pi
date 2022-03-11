@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <style>
+        #corpo {
+            background-color: rgb(18, 111, 128);
+            color: white;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body id="corpo">
+    <h1><u>Ganhe mais com a nossa solução!</u></h1>
+    Qtd. de vagas do seu estacionamento <br><br>
+    <input id="ipt_vagas" type="text" placeholder="Digite aqui a qtd. de vagas"><br><br>
+    Preço por hora do seu estacionamento <br><br>
+    <input id="ipt_preco" type="text" placeholder="Digite aqui o preço/h"><br><br>
+    Horas de funcionamento diário (Em média) <br><br>
+    <input id="ipt_horas" type="text" placeholder="Insira aqui as horas"><br><br>
+    <button onclick="calcular()">CALCULAR</button><br><br>
+    <div id="resultado"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var vagas = ipt_vagas.value
+        var preco = ipt_preco.value
+        var horas = ipt_horas.value
+        var lucro_inicial = vagas * preco * horas
+        var lucro_final = Number(lucro_inicial) + Number((lucro_inicial * 0.2))
+
+        resultado.innerHTML = `Seu lucro atual, nas condições acima é de <span style="color: darkred">R$${(lucro_inicial).toFixed(2)}</span><br>Porém, com a nossa solução, seu lucro passa a ser de <b style="color: rgb(0, 223, 0);">R$${(lucro_final).toFixed(2)}</b> e <u>EM APENAS UM DIA!</u><br><br>Ou seja, o lucro de 1 semana inteira, normalmente te geraria <span style="color: darkred">R$${lucro_inicial * 7}</span>.<br>Já com nossos serviços, esse lucro escalaria para <b style="color: rgb(2, 170, 2);">R$${(lucro_final * 7).toFixed(2)}</b>.<br><br><b style="color: rgb(0, 223, 0);">R$${(Number(lucro_final * 7) - Number(lucro_inicial * 7)).toFixed(2)}</b> a mais de lucro em apenas uma semana.`;
+    }
+</script>
